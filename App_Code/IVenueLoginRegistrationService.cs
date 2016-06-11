@@ -16,13 +16,32 @@ public interface IVenueLoginRegistrationService
     int VenueLogin(String userName, string password);
 
     [OperationContract]
-    bool AddShow(Show s, ShowDetail sd);
+    bool AddShow(Show s, ShowDetailInfo sd);
 
     [OperationContract]
     bool AddArtist(Artist a);
-
-  
-
  
 }
 
+[DataContract]
+public class ShowDetailInfo
+{
+    [DataMember]
+    public int ShowKey { set; get; }
+
+    [DataMember]
+    public string Show { set; get; }
+
+    [DataMember]
+    public DateTime ArtistKeyShowDetailArtistStartTime { set; get; }
+
+    [DataMember]
+    public string ShowDetailAdditional { set; get; }
+
+    [DataMember]
+    public int ArtistKey { set; get; }
+
+    [DataMember]
+    public string ReviewBody { set; get; }
+
+}

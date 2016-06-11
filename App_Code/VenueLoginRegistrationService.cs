@@ -76,7 +76,7 @@ public class VenueLoginRegistrationService : IVenueLoginRegistrationService
         return result;
     }
 
-     public bool AddShow(Show sh, ShowDetail sd )
+     public bool AddShow(Show sh, ShowDetailInfo sd )
     {
         
         Show s = new Show();
@@ -85,12 +85,13 @@ public class VenueLoginRegistrationService : IVenueLoginRegistrationService
         s.ShowDateEntered = sh.ShowDateEntered;
         s.ShowTime = sh.ShowTime;
         s.ShowTicketInfo = sh.ShowTicketInfo;
+        s.ShowKey = sh.ShowKey;
+
 
         ShowDetail showDet = new ShowDetail();
         showDet.ShowKey = sd.ShowKey;
-        showDet.Show = sd.Show;
         showDet.ArtistKey = sd.ArtistKey;
-        showDet.ShowDetailArtistStartTime = sd.ShowDetailArtistStartTime;
+        showDet.ShowDetailArtistStartTime = sd.ArtistKeyShowDetailArtistStartTime.TimeOfDay;
         showDet.ShowDetailAdditional = sd.ShowDetailAdditional;
         bool result = true;
         try
